@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./src/context/user";
 import { PeersProvider } from "./src/context/peers";
 import Auth from "./src/pages/Auth/Auth";
+import Dashboard from "./src/pages/Dashboard/Dashboard";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 
 const { app } = await Pear.versions();
@@ -30,7 +31,8 @@ root.render(html`
       >
        <${HashRouter}>
           <${Routes}>
-            <${Route} path="/" element=${html`<${Auth} />`} />
+            <${Route} path="/auth" element=${html`<${Auth} />`} />
+            <${Route} path="/" element=${html`<${Dashboard} />`} />
             <${Route}
               path="*"
               element=${html`<div>Page not found</div>`}
