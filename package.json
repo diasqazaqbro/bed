@@ -1,0 +1,47 @@
+{
+  "name": "filesharing-react-app-example",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "pear dev",
+    "test": "standard"
+  },
+  "pear": {
+    "type": "desktop",
+    "gui": {
+      "backgroundColor": "#151517",
+      "height": 740,
+      "width": 1024
+    }
+  },
+  "author": "Holepunch Inc",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "brittle": "^3.0.0",
+    "postcss": "^8.4.49",
+    "standard": "^17.1.0",
+    "tailwindcss": "^3.4.16"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "corestore": "^6.15.11",
+    "downloads-folder": "^3.0.3",
+    "htm": "^3.1.1",
+    "hyperbee": "^2.19.0",
+    "hypercore-id-encoding": "^1.3.0",
+    "hyperdrive": "^11.8.1",
+    "hyperswarm": "^4.7.14",
+    "localdrive": "^1.11.1",
+    "protomux-rpc": "^1.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.53.2",
+    "react-router-dom": "^7.0.2",
+    "styled-components": "^6.1.1",
+    "ws": "^7.5.10"
+  }
+}
