@@ -1,6 +1,6 @@
 # CloudLess
 
-presentation.pdf
+[View Presentation](https://github.com/diasqazaqbro/bed/edit/main/presentation.pdf)
 
 
 **CloudLess** is a decentralized file-sharing application designed to provide a secure, private, and efficient platform for storing and sharing files. Built on **P2P Pears Runtime**, it eliminates centralized storage, ensuring data privacy and security for all users.
