@@ -1,10 +1,11 @@
 import { html } from "htm/react";
-import AuthLayout from "./components/AuthLayout";
-import AuthForm from "./components/AuthForm";
 import { useState, useEffect } from "react";
 import useUser from "../../hooks/use-user";
 import usePeers from "../../hooks/use-peers";
-import { Box } from "@mui/material";
+import ControlPanel from "../../containers/ControlPanel";
+import PeersPanel from "../../containers/PeersPanel";
+import UserPanel from "../../containers/UserPanel";
+import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 
 export default ({ app }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -34,16 +35,23 @@ export default ({ app }) => {
           alignItems: "center",
         }}
       >
-        <div class="loader-container">
-          <div class="loader2"></div>
-        </div>
+        <${CircularProgress} sx=${{ marginBottom: "20px" }} />
+        <${Typography} variant="h3"> Loading <//>
       <//>
     `;
   }
 
   return html`
-    <${AuthLayout}>
-      <${AuthForm}> <//>
+    <${Grid} container spacing=${2}>
+      <${Grid} item xs=${12}>
+        <${ControlPanel} />
+      <//>
+      <${Grid} item xs=${6}>
+        <${PeersPanel} />
+      <//>
+      <${Grid} item xs=${6}>
+        <${UserPanel} />
+      <//>
     <//>
   `;
 };

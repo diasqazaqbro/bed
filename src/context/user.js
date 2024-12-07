@@ -17,7 +17,6 @@ function UserProvider({ config, ...props }) {
   const hyperdriveRef = useRef(new Hyperdrive(corestoreRef.current));
   const localdriveRef = useRef(new Localdrive(downloadsFolder()));
 
-  const STATIC_TOKEN = "test-token";
   Pear.teardown(async () => {
     await corestoreRef.current.close();
   });
@@ -52,23 +51,21 @@ function UserProvider({ config, ...props }) {
   async function getFilesByToken() {
     const newFiles = [];
     const stream = hyperdriveRef.current.list("/files", { recursive: false });
-  
+
     for await (const file of stream) {
-  
-      // Пропускаем файлы с некорректным ключом или .meta файлы
       if (!file.key || file.key.endsWith(".meta")) {
         continue;
       }
-  
+
       try {
-        // Получаем метаданные файла
-        const metadataBuffer = await hyperdriveRef.current.get(`${file.key}.meta`);
+        const metadataBuffer = await hyperdriveRef.current.get(
+          `${file.key}.meta`
+        );
         const metadata = JSON.parse(new TextDecoder().decode(metadataBuffer));
-  
-        // Фильтруем файлы по токену
-        if (metadata.token === STATIC_TOKEN) {
+        const buf = await hyperdriveRef.current.get("/meta/profile.json");
+
+        if (metadata.token === JSON.parse(buf).token) {
           newFiles.push({ ...file, token: metadata.token });
-        } else {
         }
       } catch (err) {
         console.warn(
@@ -77,21 +74,20 @@ function UserProvider({ config, ...props }) {
         );
       }
     }
-  
+
     setFiles(newFiles);
   }
-  
 
   async function saveFileWithToken(file) {
-
     const filePath = `/files/${file.name}`;
     const metaPath = `${filePath}.meta`;
 
     const data = await file.arrayBuffer();
     await hyperdriveRef.current.put(filePath, data);
+    console.log(profile.token);
 
     const metadata = {
-      token: STATIC_TOKEN,
+      token: profile.token || "",
       name: file.name,
       size: file.size,
       uploadedAt: new Date().toISOString(),
@@ -153,7 +149,6 @@ function UserProvider({ config, ...props }) {
         hyperdrive: hyperdriveRef.current,
         localdrive: localdriveRef.current,
         downloadsFolder: downloadsFolder(),
-        STATIC_TOKEN,
       }}
       ...${props}
     />

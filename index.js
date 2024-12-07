@@ -2,20 +2,28 @@
 
 import { html } from "htm/react";
 import { createRoot } from "react-dom/client";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { UserProvider } from "./src/context/user";
 import { PeersProvider } from "./src/context/peers";
-import Auth from "./src/pages/Auth/Auth";
 import Dashboard from "./src/pages/Dashboard/Dashboard";
+import Auth from "./src/pages/Auth/Auth";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import useUser from "./src/hooks/use-user";
 
 const { app } = await Pear.versions();
 const theme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
   },
 });
 Pear.updates(() => Pear.reload());
+
+const AuthRedirect = () => {
+  const { profile } = useUser();
+  return profile.token
+    ? html`<${Navigate} to="/dashboard" replace />`
+    : html`<${Auth} />`;
+};
 
 const root = createRoot(document.querySelector("#root"));
 root.render(html`
@@ -31,8 +39,8 @@ root.render(html`
       >
        <${HashRouter}>
           <${Routes}>
-            <${Route} path="/auth" element=${html`<${Auth} />`} />
-            <${Route} path="/" element=${html`<${Dashboard} />`} />
+            <${Route} path="/" element=${html`<${AuthRedirect} />`} />
+            <${Route} path="/dashboard" element=${html`<${Dashboard} />`} />
             <${Route}
               path="*"
               element=${html`<div>Page not found</div>`}

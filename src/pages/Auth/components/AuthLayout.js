@@ -41,7 +41,7 @@ export default function AuthLayout({ children }) {
       flexDirection: "column",
       alignItems: "center",
       backgroundColor: "#fff",
-      padding: "2rem",
+      padding: "3rem",
       justifyContent: "center",
     },
     logoMobileWrapper: {
@@ -69,14 +69,6 @@ export default function AuthLayout({ children }) {
         }}
       >
         <div style=${styles.sidebarContent}>
-          <img
-            src="public/assets/icons/logo-full.svg"
-            alt="logo"
-            width="224"
-            height="82"
-            style=${{ height: "auto" }}
-          />
-
           <div>
             <h1 style=${styles.sidebarHeading}>
               Manage your files the best way
