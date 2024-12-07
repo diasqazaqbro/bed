@@ -1,6 +1,6 @@
-# Cloud Less
+# CloudLess
 
-**Cloud Less** is a decentralized file-sharing application designed to provide a secure, private, and efficient platform for storing and sharing files. Built on **P2P Pears Runtime**, it eliminates centralized storage, ensuring data privacy and security for all users.
+**CloudLess** is a decentralized file-sharing application designed to provide a secure, private, and efficient platform for storing and sharing files. Built on **P2P Pears Runtime**, it eliminates centralized storage, ensuring data privacy and security for all users.
 
 ---
 
@@ -30,7 +30,7 @@ $ pear run -s /tmp/fs2 .
 ## Key Features
 
 ### Decentralized Architecture
-Cloud Less operates on a **P2P (Peer-to-Peer)** network, ensuring that no central servers store your data. Files are distributed across participating nodes, making the platform highly resilient and fault-tolerant.
+CloudLess operates on a **P2P (Peer-to-Peer)** network, ensuring that no central servers store your data. Files are distributed across participating nodes, making the platform highly resilient and fault-tolerant.
 
 ### Resource Equality
 - Users contribute storage equal to the amount they upload. For instance, if you upload 5GB of data, you agree to store 5GB of other users' data.
@@ -109,4 +109,4 @@ Cloud Less operates on a **P2P (Peer-to-Peer)** network, ensuring that no centra
 
 ---
 
-Cloud Less represents a revolutionary approach to file storage and sharing, combining **privacy**, **security**, and **efficiency** in a single decentralized platform. Welcome to the future of cloud storage!
+CloudLess represents a revolutionary approach to file storage and sharing, combining **privacy**, **security**, and **efficiency** in a single decentralized platform. Welcome to the future of cloud storage!
