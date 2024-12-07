@@ -4,6 +4,29 @@
 
 ---
 
+```
+$ git clone https://github.com/holepunchto/filesharing-react-app-example.git](https://github.com/diasqazaqbro/bed.git
+$ cd bed
+$ npm install 
+$ pear run .
+```
+
+When a Pear app runs, it uses a local storage that's the same for all instances. To test the file sharing app, it would be good run multiple instances that looks different. To do that, use the `--store/-s` parameter for `pear`.
+
+In one terminal:
+
+```
+$ pear run -s /tmp/fs1 .
+```
+
+In another terminal:
+
+```
+$ pear run -s /tmp/fs2 .
+```
+
+---
+
 ## Key Features
 
 ### Decentralized Architecture
