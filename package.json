@@ -12,7 +12,10 @@
       "backgroundColor": "#151517",
       "height": 740,
       "width": 1024
-    }
+    },
+    "links": [
+      "https://itfest2025.up.railway.app"
+    ]
   },
   "author": "Holepunch Inc",
   "license": "Apache-2.0",
