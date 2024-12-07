@@ -82,7 +82,7 @@ CloudLess operates on a **P2P (Peer-to-Peer)** network, ensuring that no central
 
 - **Storage**: P2P
 - **Backend**: REST (FastApi).
-- **Frontend**: React for UI, Pear runtime for desctop.
+- **Frontend**: React for UI, Pear runtime for desktop.
 
 ---
 
